@@ -33,3 +33,20 @@ for (let eachColor of colors) {
     event.target.classList.add('selected');
   });
 }
+
+function catchColor() {
+  const selectedElement = document.getElementsByClassName('selected')[0];
+  const cssObj = window.getComputedStyle(selectedElement, null);
+  let bgColor = cssObj.getPropertyValue('background-color');
+  return bgColor;
+}
+
+  
+
+
+const pixels = document.getElementsByClassName('pixel');
+for (let eachPixel of pixels) {
+  eachPixel.addEventListener('click', function(event) {
+    event.target.style.backgroundColor = catchColor();
+  });
+}
