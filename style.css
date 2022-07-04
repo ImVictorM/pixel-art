@@ -14,10 +14,9 @@
 
 #pixel-board {
   border: 3px solid red;
-  height: 240px;
-  width: 240px;
+  height: 210px;
+  width: 210px;
   line-height: 0px;
-  text-align: center;
   margin-top: 20px;
 }
 

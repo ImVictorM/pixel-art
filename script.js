@@ -21,7 +21,6 @@ const blackColor = document.getElementsByClassName('color')[0];
 blackColor.classList.add('selected');
 
 function resetSelectedColor() {
-  let colors = document.getElementsByClassName('color');
   for (let eachColor of colors) {
     eachColor.classList.remove('selected')
   }
@@ -52,5 +51,38 @@ const clearButton = document.getElementById('clear-board');
 clearButton.addEventListener('click', function() {
   for (let eachPixel of pixels) {
     eachPixel.style.backgroundColor = 'white';
+  }
+});
+
+function resetPixelBoard() {
+  console.log(pixels.length - 1)
+  for(let index = pixels.length - 1; index >= 0; index -= 1 ) {
+    pixels[index].remove();
+  }
+}
+
+function resizeTable(number) {
+  let newBoardSize = number * number;
+  resetPixelBoard();
+  const pixelBoard = document.getElementById('pixel-board');
+  const eachPixelSize = 42;
+  let newWidth = number * eachPixelSize;
+  let newHeight = number * eachPixelSize;
+  pixelBoard.style.width = newWidth + 'px';
+  pixelBoard.style.height = newHeight + 'px';
+  for (let numberOfPixels = 1; numberOfPixels <= newBoardSize; numberOfPixels += 1) {
+    const pixel = document.createElement('div');
+    pixel.classList.add('pixel');
+    pixelBoard.appendChild(pixel);
+  }
+}
+
+const vqvButton = document.getElementById('generate-board');
+vqvButton.addEventListener('click', function() {
+  const inputValue = document.getElementById('board-size').value;
+  if (inputValue === '') {
+    window.alert('Board inválido!');
+  } else {
+    resizeTable(inputValue);
   }
 });
