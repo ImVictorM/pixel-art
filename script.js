@@ -9,7 +9,7 @@ for (let index = 1; index < colors.length; index += 1) {
 function generatePixels() {
   const pixelBoard = document.getElementById('pixel-board');
   for (let numberOfPixels = 1; numberOfPixels <= 25; numberOfPixels += 1) {
-    let pixel = document.createElement('div');
+    const pixel = document.createElement('div');
     pixel.classList.add('pixel');
     pixelBoard.appendChild(pixel);
   }
@@ -17,5 +17,19 @@ function generatePixels() {
 
 generatePixels();
 
-let blackColor = document.getElementsByClassName('color')[0];
+const blackColor = document.getElementsByClassName('color')[0];
 blackColor.classList.add('selected');
+
+function resetSelectedColor() {
+  let colors = document.getElementsByClassName('color');
+  for (let eachColor of colors) {
+    eachColor.classList.remove('selected')
+  }
+}
+
+for (let eachColor of colors) {
+  eachColor.addEventListener('click', function(event) {
+    resetSelectedColor();
+    event.target.classList.add('selected');
+  });
+}
