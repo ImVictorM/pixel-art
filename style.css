@@ -12,3 +12,20 @@
   display: inline-block;
 }
 
+#pixel-board {
+  border: 3px solid red;
+  height: 600px;
+  width: 600px;
+  text-align: center;
+  line-height: 0px;
+  margin-top: 20px;
+}
+
+.pixel {
+  width: 19%;
+  height: 19%;
+  display: inline-block;
+  border: 1px solid black;
+  margin: 0px;
+  background-color: white;
+}
