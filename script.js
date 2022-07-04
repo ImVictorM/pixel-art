@@ -44,8 +44,6 @@ function applyColor(event) {
   aux.target.style.backgroundColor = catchColor();
 }
 
-
-
 const pixels = document.getElementsByClassName('pixel');
 for (let index = 0; index < pixels.length; index += 1) {
   pixels[index].addEventListener('click', applyColor);
@@ -65,7 +63,7 @@ function resetPixelBoard() {
   }
 }
 function numberValidation(number) {
-  let inputNumber = document.getElementById('board-size');
+  const inputNumber = document.getElementById('board-size');
   if (number < 5) {
     inputNumber.value = 5;
     return 5;
