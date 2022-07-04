@@ -62,10 +62,13 @@ function resetPixelBoard() {
   }
 }
 function numberValidation(number) {
+  let inputNumber = document.getElementById('board-size');
   if (number < 5) {
+    inputNumber.value = 5;
     return 5;
   }
   if (number > 50) {
+    inputNumber.value = 50;
     return 50;
   }
   return number;
