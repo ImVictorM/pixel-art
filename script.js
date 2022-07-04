@@ -21,13 +21,13 @@ generatePixels();
 const blackColor = document.getElementsByClassName('color')[0];
 blackColor.classList.add('selected');
 
-function teste(event) {
+function changeSelectedElement(event) {
   document.getElementsByClassName('selected')[0].classList.remove('selected');
   event.target.classList.add('selected');
 }
 
 for (let index = 0; index < colors.length; index += 1) {
-  colors[index].addEventListener('click', teste);
+  colors[index].addEventListener('click', changeSelectedElement);
 }
 
 // pega a cor do elemento selecionado
