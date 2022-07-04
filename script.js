@@ -16,6 +16,6 @@ function generatePixels() {
 }
 
 generatePixels();
-window.onload = function() {
 
-}
+let blackColor = document.getElementsByClassName('color')[0];
+blackColor.classList.add('selected');
