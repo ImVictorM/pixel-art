@@ -33,20 +33,24 @@ for (let eachColor of colors) {
     event.target.classList.add('selected');
   });
 }
-
+// pega a cor do elemento selecionado
 function catchColor() {
   const selectedElement = document.getElementsByClassName('selected')[0];
   const cssObj = window.getComputedStyle(selectedElement, null);
   let bgColor = cssObj.getPropertyValue('background-color');
   return bgColor;
 }
-
-  
-
-
+// aplica cor do elemento selecionado no pixel
 const pixels = document.getElementsByClassName('pixel');
 for (let eachPixel of pixels) {
   eachPixel.addEventListener('click', function(event) {
     event.target.style.backgroundColor = catchColor();
   });
 }
+
+const clearButton = document.getElementById('clear-board');
+clearButton.addEventListener('click', function() {
+  for (let eachPixel of pixels) {
+    eachPixel.style.backgroundColor = 'white';
+  }
+});
