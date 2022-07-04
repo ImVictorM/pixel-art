@@ -43,6 +43,9 @@ function applyColor(event) {
   const aux = event;
   aux.target.style.backgroundColor = catchColor();
 }
+
+
+
 const pixels = document.getElementsByClassName('pixel');
 for (let index = 0; index < pixels.length; index += 1) {
   pixels[index].addEventListener('click', applyColor);
@@ -88,7 +91,11 @@ function resizeTable(number) {
     pixel.classList.add('pixel');
     pixelBoard.appendChild(pixel);
   }
+  for (let index = 0; index < pixels.length; index += 1) {
+    pixels[index].addEventListener('click', applyColor);
+  }
 }
+
 function resizeHandler() {
   const inputValue = document.getElementById('board-size').value;
   if (inputValue === '') {
