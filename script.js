@@ -1,11 +1,12 @@
 function generateRandomColor() {
   return `rgb(${Math.random() * 240}, ${Math.random() * 240}, ${Math.random() * 240})`;
 }
-
+// aplica cores aleatorias
 const colors = document.getElementsByClassName('color');
 for (let index = 1; index < colors.length; index += 1) {
   colors[index].style.backgroundColor = generateRandomColor();
 }
+// gera a quantidade padrão de pixels
 function generatePixels() {
   const pixelBoard = document.getElementById('pixel-board');
   for (let numberOfPixels = 1; numberOfPixels <= 25; numberOfPixels += 1) {
@@ -25,8 +26,8 @@ function teste(event) {
   event.target.classList.add('selected');
 }
 
-for (const eachColor of colors) {
-  eachColor.addEventListener('click', teste);
+for (let index = 0; index < colors.length; index += 1) {
+  colors[index].addEventListener('click', teste);
 }
 
 // pega a cor do elemento selecionado
@@ -39,15 +40,16 @@ function catchColor() {
 // aplica cor do elemento selecionado no pixel
 
 function applyColor(event) {
-  event.target.style.backgroundColor = catchColor();
+  const aux = event;
+  aux.target.style.backgroundColor = catchColor();
 }
 const pixels = document.getElementsByClassName('pixel');
-for (const eachPixel of pixels) {
-  eachPixel.addEventListener('click', applyColor);
+for (let index = 0; index < pixels.length; index += 1) {
+  pixels[index].addEventListener('click', applyColor);
 }
 function clearBoard() {
-  for (const eachPixel of pixels) {
-    eachPixel.style.backgroundColor = 'white';
+  for (let index = 0; index < pixels.length; index += 1) {
+    pixels[index].style.backgroundColor = 'white';
   }
 }
 
