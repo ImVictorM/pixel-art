@@ -62,6 +62,11 @@ function resetPixelBoard() {
 }
 
 function resizeTable(number) {
+  if (number < 5) {
+    number = 5;
+  } else if (number > 50) {
+    number = 50;
+  }
   let newBoardSize = number * number;
   resetPixelBoard();
   const pixelBoard = document.getElementById('pixel-board');
